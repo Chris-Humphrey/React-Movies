@@ -1,5 +1,6 @@
 import React from 'react';
-import Movie from './Movie'
+import Movie from './Movie';
+import {CardGroup} from 'react-bootstrap';
 
 const Movie_URL = "https://raw.githubusercontent.com/RyanHemrick/star_wars_movie_app/master/movies.json";
 
@@ -21,8 +22,6 @@ class AllMovies extends React.Component {
         .then((data) => {
             this.setState({
                 movies: data.movies
-            }, ()=>{
-                console.log(this.state.movies)
             })
         })
     }
@@ -33,7 +32,9 @@ class AllMovies extends React.Component {
         })
         return (
             <>
-                {listMovies}
+                <CardGroup className="pt-3">
+                    {listMovies}
+                </CardGroup>
             </>
         );
     }
